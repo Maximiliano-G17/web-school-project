@@ -23,10 +23,6 @@ public class Teacher extends Person{
 	
 	@OneToMany(mappedBy = "teacher")
 	private List<Subject> subjects;
-	
-	  
-	public Teacher() {
-	}
 
 	public String getSpecialty() {
 		return specialty;

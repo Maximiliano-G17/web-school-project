@@ -32,9 +32,6 @@ public class Subject {
 	@ManyToOne
 	@JoinColumn(name = "id")
 	private Teacher teacher;
-	
-	public Subject() {
-	}
 
 	public String getName() {
 		return name;

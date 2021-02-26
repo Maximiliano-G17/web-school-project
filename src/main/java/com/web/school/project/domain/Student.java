@@ -11,7 +11,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "students")
 @PrimaryKeyJoinColumn(referencedColumnName = "id")
@@ -29,9 +28,6 @@ public class Student extends Person{
 	@JoinTable(name = "students_subject",joinColumns = @JoinColumn(name="student_id"),
 	inverseJoinColumns = @JoinColumn(name="subject_id"))
 	private List<Subject> subjects = new ArrayList<>();
-
-	public Student() {
-	}
 
 	public String getYearStudied() {
 		return yearStudied;
