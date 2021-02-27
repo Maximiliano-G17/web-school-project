@@ -1,5 +1,6 @@
 package com.web.school.project.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,20 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public Optional<Student> findBySurname(String surname) {
 		return studentRepo.findBySurname(surname);
+	}
+
+	@Override
+	public List<Student> findByYearStudied(String year) {
+		return studentRepo.findByYearStudied(year);
+	}
+
+	@Override
+	public List<Student> findByAddressContaining(String address) {
+		return studentRepo.findByAddressContaining(address);
+	}
+
+	@Override
+	public Optional<Student> findByDni(String dni) {
+		return studentRepo.findByDni(dni);
 	}
 }
