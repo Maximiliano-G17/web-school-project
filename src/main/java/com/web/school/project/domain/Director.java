@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "directors")
 @PrimaryKeyJoinColumn(referencedColumnName = "id")
-public class Director {
+public class Director extends Person{
 	
 	@Column
 	private String yearWorked;

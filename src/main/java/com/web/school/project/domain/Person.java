@@ -26,7 +26,7 @@ public class Person {
 	@Column
 	private String phone;
 	@Column
-	private String adress;
+	private String address;
 	@Column
 	private String rol;
 	
@@ -60,11 +60,11 @@ public class Person {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getRol() {
 		return rol;
