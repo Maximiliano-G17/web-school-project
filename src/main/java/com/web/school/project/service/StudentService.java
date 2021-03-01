@@ -17,4 +17,9 @@ public interface StudentService {
 
 	Optional<Student> findByDni(String dni);
 
+	List<Student> findByAll();
+	
+	Student save(Student student);
+	
+	void delete(Long id);
 }

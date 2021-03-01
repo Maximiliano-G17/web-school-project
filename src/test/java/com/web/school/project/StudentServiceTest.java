@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.web.school.project.domain.Student;
+import com.web.school.project.domain.Subject;
+import com.web.school.project.domain.Teacher;
 import com.web.school.project.service.StudentService;
 
 @SpringBootTest
@@ -22,9 +24,8 @@ public class StudentServiceTest {
 	@Test
 	public void findById_withIdExisting_returnAStudent() {
 		Long id = 1L;
-		
+	
 		Optional<Student> studentFound = studentService.findById(id);
-		
 		assertThat(studentFound).isNotEmpty();
 		assertEquals(id,studentFound.get().getId());
 	}
@@ -78,7 +79,7 @@ public class StudentServiceTest {
 	
 	@Test
 	public void findByAddressStudied_withAddressExisting_returnAListStudents() {
-		String address = "Catriel";
+		String address = "tri";
 		
 		List<Student> studentsFound = studentService.findByAddressContaining(address);
 		
@@ -103,5 +104,57 @@ public class StudentServiceTest {
 		Optional<Student> studentFound = studentService.findByDni(dni);
 
 		assertThat(studentFound).isEmpty();
+	}
+	
+	@Test
+	public void findByAll_returnAListStudents() {		
+		List<Student> studentsFound = studentService.findByAll();
+		
+		assertThat(studentsFound).isNotEmpty();
+		assertEquals(1,studentsFound.size());
+	}
+	
+	@Test
+	public void findByTeachersByStudent_withStudentIdExisting_returnAListTeachers() {		
+		Long id = 1L;
+		
+		Optional<Student> studentFound =  studentService.findById(id);	 
+		List<Teacher> teachersByStudent = studentFound.get().getTeachers();
+		
+		assertThat(teachersByStudent).isNotEmpty();
+		assertEquals(3,teachersByStudent.size());
+	}
+	
+	@Test
+	public void findBySubjectsByStudent_withStudentIdExisting_returnAListSubjects() {		
+		Long id = 1L;
+
+		Optional<Student> studentFound =  studentService.findById(id);	 
+		List<Subject> SubjectsByStudent = studentFound.get().getSubjects();
+		
+		assertThat(SubjectsByStudent).isNotEmpty();
+		assertEquals(3,SubjectsByStudent.size());
+	}
+	
+	@Test
+	public void updateStudent_withStudentIdExisting_returnAStudent() {		
+		Long id = 1L;
+		
+		Optional<Student> studentFound =  studentService.findById(id);	
+		studentFound.get().setName("Maxi Alexis");
+		Student studentUpdated = studentService.save(studentFound.get());
+		
+		assertEquals(id,studentUpdated.getId());
+	}
+	
+	@Test
+	public void deleteStudent_withStudentIdExisting_returnAStudent() {		
+		Long id = 9L;
+		
+		int sizeBeforeDelete = studentService.findByAll().size();
+		studentService.delete(id);
+		int sizeAfterDelete = studentService.findByAll().size();
+		
+		assertEquals(sizeAfterDelete,sizeBeforeDelete-1);
 	}
 }
