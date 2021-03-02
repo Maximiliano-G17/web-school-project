@@ -5,10 +5,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "teachers")
@@ -18,11 +22,13 @@ public class Teacher extends Person{
 	@Column
 	private String specialty;
 	
-	@ManyToMany(mappedBy = "teachers")
+	@ManyToMany(mappedBy = "teachers", fetch=FetchType.LAZY)
+	@Fetch(FetchMode.SUBSELECT)
 	private List<Student> students = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "teacher")
-	private List<Subject> subjects;
+	@OneToMany(mappedBy = "teacher", fetch=FetchType.LAZY)
+	@Fetch(FetchMode.SELECT)
+	private List<Subject> subjects = new ArrayList<>();
 
 	public String getSpecialty() {
 		return specialty;
