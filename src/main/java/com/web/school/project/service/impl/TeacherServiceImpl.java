@@ -27,10 +27,6 @@ public class TeacherServiceImpl implements TeacherService{
 
 	@Override
 	public Optional<Teacher> findById(Long id) {
-//		Long ids = 11L;
-//		Optional<Teacher> teacherFound = teacherRepo.findById(ids);
-//		
-//		System.out.println(teacherFound.get().getStudents().get(0).getName());
 		return teacherRepo.findById(id);
 	}
 
@@ -42,7 +38,6 @@ public class TeacherServiceImpl implements TeacherService{
 	@Override
 	public List<Student> findStudentsById(Long id) {
 		List<Student> studentsFound = teacherRepo.findStudentsById(id);
-		studentsFound.forEach(x -> System.out.println(x));
 		return studentsFound;
 	}
 }

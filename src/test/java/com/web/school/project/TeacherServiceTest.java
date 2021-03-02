@@ -63,11 +63,11 @@ public class TeacherServiceTest {
 	}
 	
 	@Test
-	public void ssssssssssssssssssssssssssssssssssssssssssssssssss() {
+	public void findStudentsById() {
 		Long id = 11L;
 		List<Student> StudentsFound = teacherService.findStudentsById(id);
 		
 		assertThat(StudentsFound).isNotEmpty();
-//		assertEquals(1,StudentsFound.size());
+		assertEquals(7,StudentsFound.size());
 	}
 }
