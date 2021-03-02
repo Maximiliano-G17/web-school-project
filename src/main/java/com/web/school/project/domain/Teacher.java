@@ -11,9 +11,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 @Entity
 @Table(name = "teachers")
 @PrimaryKeyJoinColumn(referencedColumnName = "id")
@@ -23,11 +20,9 @@ public class Teacher extends Person{
 	private String specialty;
 	
 	@ManyToMany(mappedBy = "teachers", fetch=FetchType.LAZY)
-	@Fetch(FetchMode.SUBSELECT)
 	private List<Student> students = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "teacher", fetch=FetchType.LAZY)
-	@Fetch(FetchMode.SELECT)
 	private List<Subject> subjects = new ArrayList<>();
 
 	public String getSpecialty() {
