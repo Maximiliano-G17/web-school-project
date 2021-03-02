@@ -12,9 +12,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 @Entity
 @Table(name = "students")
 @PrimaryKeyJoinColumn(referencedColumnName = "id")
@@ -23,13 +20,12 @@ public class Student extends Person{
 	@Column
 	private String yearStudied;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "students_teachers",joinColumns = @JoinColumn(name="student_id"),
 	inverseJoinColumns = @JoinColumn(name="teacher_id"))
 	private List<Teacher> teachers = new ArrayList<>();
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@Fetch(FetchMode.SELECT)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "students_subject",joinColumns = @JoinColumn(name="student_id"),
 	inverseJoinColumns = @JoinColumn(name="subject_id"))
 	private List<Subject> subjects = new ArrayList<>();
@@ -58,8 +54,8 @@ public class Student extends Person{
 		this.subjects = subjects;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [yearStudied=" + yearStudied + ", teachers=" + teachers + ", subjects=" + subjects + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Student [yearStudied=" + yearStudied + ", teachers=" + teachers + ", subjects=" + subjects + "]";
+//	}
 }
