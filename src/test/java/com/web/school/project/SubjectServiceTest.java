@@ -102,4 +102,5 @@ public class SubjectServiceTest {
 		
 		assertThat(subjectsFound).isEmpty();
 	}
+	
 }

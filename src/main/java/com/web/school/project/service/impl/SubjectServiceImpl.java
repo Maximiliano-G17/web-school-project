@@ -42,4 +42,5 @@ public class SubjectServiceImpl implements SubjectService{
 	public List<Subject> findByStudentsId(Long id) {		
 		return subjectRepo.findByStudentsId(id);
 	}
+	
 }

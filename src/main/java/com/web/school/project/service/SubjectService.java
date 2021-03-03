@@ -16,4 +16,5 @@ public interface SubjectService {
 	List<Subject> findByTeacherId(Long id);
 
 	List<Subject> findByStudentsId(Long id);
+	
 }
