@@ -20,4 +20,5 @@ public class Director extends Person{
 	public void setYearWorked(String yearWorked) {
 		this.yearWorked = yearWorked;
 	}
+	
 }
