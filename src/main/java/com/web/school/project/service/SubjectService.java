@@ -1,13 +1,15 @@
-package com.web.school.project.repository;
+package com.web.school.project.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.web.school.project.domain.Subject;
 
-public interface SubjectRepository extends JpaRepository<Subject, Long>{
+public interface SubjectService {
+
+	List<Subject> findAll();
+
+	Optional<Subject> findById(Long id);
 
 	Optional<Subject> findByName(String subject);
 

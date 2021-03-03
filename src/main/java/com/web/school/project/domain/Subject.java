@@ -1,11 +1,11 @@
 package com.web.school.project.domain;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,13 +23,11 @@ public class Subject {
 	private Long subject_id;
 	@Column
 	private String name;
-	@Column
-	private Date schedule = new Date();
 	
-	@ManyToMany(mappedBy = "subjects")
+	@ManyToMany(mappedBy = "subjects", fetch=FetchType.LAZY)
 	private List<Student> students = new ArrayList<>();
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "id")
 	private Teacher teacher;
 
@@ -39,14 +37,6 @@ public class Subject {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Date getSchedule() {
-		return schedule;
-	}
-
-	public void setSchedule(Date schedule) {
-		this.schedule = schedule;
 	}
 
 	public Long getSubject_id() {
