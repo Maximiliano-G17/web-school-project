@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.web.school.project.domain.Student;
+import com.web.school.project.domain.Subject;
+import com.web.school.project.domain.Teacher;
 import com.web.school.project.repository.StudentRepository;
 import com.web.school.project.service.StudentService;
 
@@ -56,5 +58,15 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public void delete(Long id) {
 		studentRepo.deleteById(id);
+	}
+	
+	@Override
+	public List<Teacher> teachersByStudent(Long id){ 
+		return studentRepo.teachersByStudent(id);
+	}
+
+	@Override
+	public List<Subject> findBySubjectsByStudent(Long id) {
+		return studentRepo.findBySubjectsByStudent(id);
 	}
 }

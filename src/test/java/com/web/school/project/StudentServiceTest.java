@@ -118,8 +118,7 @@ public class StudentServiceTest {
 	public void findByTeachersByStudent_withStudentIdExisting_returnAListTeachers() {		
 		Long id = 1L;
 		
-		Optional<Student> studentFound =  studentService.findById(id);	 
-		List<Teacher> teachersByStudent = studentFound.get().getTeachers();
+		List<Teacher> teachersByStudent = studentService.teachersByStudent(id);
 		
 		assertThat(teachersByStudent).isNotEmpty();
 		assertEquals(3,teachersByStudent.size());
@@ -128,9 +127,8 @@ public class StudentServiceTest {
 	@Test
 	public void findBySubjectsByStudent_withStudentIdExisting_returnAListSubjects() {		
 		Long id = 1L;
-
-		Optional<Student> studentFound =  studentService.findById(id);	 
-		List<Subject> SubjectsByStudent = studentFound.get().getSubjects();
+		
+		List<Subject> SubjectsByStudent = studentService.findBySubjectsByStudent(id);
 		
 		assertThat(SubjectsByStudent).isNotEmpty();
 		assertEquals(3,SubjectsByStudent.size());
