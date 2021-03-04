@@ -32,4 +32,14 @@ public class DirectorServiceImpl implements DirectorService{
 	public Optional<Director> findBySurname(String surname) {
 		return directorRepo.findBySurname(surname);
 	}
+
+	@Override
+	public Optional<Director> findByYearWorked(String yearWorked) {
+		return directorRepo.findByYearWorked(yearWorked);
+	}
+
+	@Override
+	public Optional<Director> findByDni(String dni) {
+		return directorRepo.findByDni(dni);
+	}
 }

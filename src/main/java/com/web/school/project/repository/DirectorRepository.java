@@ -10,4 +10,8 @@ public interface DirectorRepository extends JpaRepository<Director, Long>{
 
 	Optional<Director> findBySurname(String surname);
 
+	Optional<Director> findByYearWorked(String yearWorked);
+
+	Optional<Director> findByDni(String dni);
+
 }

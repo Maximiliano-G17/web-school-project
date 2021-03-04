@@ -64,4 +64,42 @@ public class DirectorServiceTest {
 		
 		assertThat(directorFound).isEmpty();
 	}
+	
+	@Test
+	public void findByYearWorked_withYearWorkedExisting_returnADirector() {
+		String yearWorked = "2019";
+		
+		Optional<Director> directorFound = directorService.findByYearWorked(yearWorked);
+		
+		assertThat(directorFound).isNotEmpty();
+		assertEquals(yearWorked, directorFound.get().getYearWorked());
+	}
+	
+	@Test
+	public void findByYearWorked_withYearWorkedNonexistent_returnEmpty() {
+		String yearWorked = "0000";
+		
+		Optional<Director> directorFound = directorService.findByYearWorked(yearWorked);
+		
+		assertThat(directorFound).isEmpty();
+	}
+	
+	@Test
+	public void findByDni_withDniExisting_returnADirector() {
+		String dni = "22343258";
+		
+		Optional<Director> directorFound = directorService.findByDni(dni);
+		
+		assertThat(directorFound).isNotEmpty();
+		assertEquals(dni, directorFound.get().getDni());
+	}
+	
+	@Test
+	public void findByDni_withDniNonexistent_returnEmpty() {
+		String dni = "00000000";
+		
+		Optional<Director> directorFound = directorService.findByDni(dni);
+		
+		assertThat(directorFound).isEmpty();
+	}
 }
