@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "persons")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Person {
+public abstract class Person {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -71,5 +71,10 @@ public class Person {
 	}
 	public void setRol(String rol) {
 		this.rol = rol;
+	}
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", dni=" + dni + ", name=" + name + ", surname=" + surname + ", phone=" + phone
+				+ ", address=" + address + ", rol=" + rol + "]";
 	}
 }
