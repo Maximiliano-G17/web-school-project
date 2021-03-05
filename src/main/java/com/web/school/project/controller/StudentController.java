@@ -7,22 +7,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.web.school.project.domain.Person;
-import com.web.school.project.service.PersonService;
+import com.web.school.project.domain.Student;
+import com.web.school.project.service.StudentService;
 
 @Controller
-@RequestMapping("api/people")
-public class MainController {
+@RequestMapping("api/people/students")
+public class StudentController {
 	
 	@Autowired
-	private PersonService personService;
-		
+	private StudentService studentService;
+	
 	@RequestMapping("/")
-	public String readAll(Model model) {
+	public String findAll(Model model) {
+		List<Student> findAll = studentService.findByAll();
 		
-		List<Person> findAll = personService.findAll();
 		model.addAttribute("findAll", findAll);
-		
-		return "views/index";
+		return "views/students";
 	}
 }

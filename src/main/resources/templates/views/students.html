@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="table-container">    
+        <table class="table">   
+            <caption class="table-caption">STUDENTS</caption>  
+            <thead>
+              <tr class="table-row">
+                <th class="table-head">#ID</th>
+                <th class="table-head">Name</th>
+                <th class="table-head">Surname</th>
+                <th class="table-head">D.N.I</th>
+                <th class="table-head">Phone</th>
+                <th class="table-head">Address</th>
+                <th class="table-head">Year Studied</th>
+                <th class="table-head">Teachers</th>
+                <th class="table-head">Subjects</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-row" th:each="students:${findAll}">
+                <th class="table-data" scope="row" th:text="${students.id}"></th>
+                <td class="table-data" th:text="${students.name}"></td>
+                <td class="table-data" th:text="${students.surname}"></td>
+                <td class="table-data" th:text="${students.dni}"></td>
+                <td class="table-data" th:text="${students.phone}"></td>
+                <td class="table-data" th:text="${students.address}"></td>
+                <td class="table-data" th:text="${students.yearStudied}"></td>
+                <td class="table-data"><a class="link" href="#">To Show</a></td>
+                <td class="table-data"><a class="link" href="#">To Show</a></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>
