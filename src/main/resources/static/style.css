@@ -1,0 +1,54 @@
+body{
+    min-height: 100vh;
+    background-image: radial-gradient(
+        violet,rgb(27, 27, 212));
+    background-repeat:no-repeat;
+}
+.table{
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
+.table, .table-data, .table-head, .table-caption{ 
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border: solid 1px white;   
+}
+.table{
+    border-collapse: collapse;
+}
+.table-container{
+    margin-top: 3%;
+    overflow: auto;
+}
+.link{
+    color: white;
+}
+.link:hover{
+    color: red;
+}
+.container-shows{
+    margin-top: 2%;
+    font-size: 20px;
+    display: inline-flex;
+}
+.show-teachers, .show-students, .show-subjects, .show-directors{
+    margin: 5rem;
+    background-color: red;
+    border: solid 5px red;
+    border-radius: 7px;
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: white;
+}
+.search{   
+    display: inline-flex;
+    justify-content: space-around;  
+}
+.search-label{
+    padding-right: 10%;
+    color: white;
+}
