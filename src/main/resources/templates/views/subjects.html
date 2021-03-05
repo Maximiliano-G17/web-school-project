@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="table-container">    
+        <table class="table">   
+            <caption class="table-caption">SUBJECTS</caption>  
+            <thead>
+              <tr class="table-row">
+                <th class="table-head">#ID</th>
+                <th class="table-head">Name</th>
+                <th class="table-head">Teacher</th>
+                <th class="table-head">Students</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-row" th:each="subject:${findAll}">
+                <th class="table-data" scope="row" th:text="${subject.subject_id}"></th>
+                <td class="table-data" th:text="${subject.name}"></td>
+                <td class="table-data"><a class="link" href="#">To Show</a></td>
+                <td class="table-data"><a class="link" href="#">To Show</a></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>

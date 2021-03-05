@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Teachers</title>
 </head>
 <body>
     <div class="table-container">    
         <table class="table">   
-            <caption class="table-caption">STUDENTS</caption>  
+            <caption class="table-caption">TEACHERS</caption>  
             <thead>
               <tr class="table-row">
                 <th class="table-head">#ID</th>
@@ -20,20 +19,20 @@
                 <th class="table-head">D.N.I</th>
                 <th class="table-head">Phone</th>
                 <th class="table-head">Address</th>
-                <th class="table-head">Year Studied</th>
-                <th class="table-head">Teachers</th>
+                <th class="table-head">Specialty</th>
+                <th class="table-head">Students</th>
                 <th class="table-head">Subjects</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="table-row" th:each="student:${findAll}">
-                <th class="table-data" scope="row" th:text="${student.id}"></th>
-                <td class="table-data" th:text="${student.name}"></td>
-                <td class="table-data" th:text="${student.surname}"></td>
-                <td class="table-data" th:text="${student.dni}"></td>
-                <td class="table-data" th:text="${student.phone}"></td>
-                <td class="table-data" th:text="${student.address}"></td>
-                <td class="table-data" th:text="${student.yearStudied}"></td>
+              <tr class="table-row" th:each="teacher:${findAll}">
+                <th class="table-data" scope="row" th:text="${teacher.id}"></th>
+                <td class="table-data" th:text="${teacher.name}"></td>
+                <td class="table-data" th:text="${teacher.surname}"></td>
+                <td class="table-data" th:text="${teacher.dni}"></td>
+                <td class="table-data" th:text="${teacher.phone}"></td>
+                <td class="table-data" th:text="${teacher.address}"></td>
+                <td class="table-data" th:text="${teacher.specialty}"></td>
                 <td class="table-data"><a class="link" href="#">To Show</a></td>
                 <td class="table-data"><a class="link" href="#">To Show</a></td>
               </tr>
