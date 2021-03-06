@@ -33,8 +33,8 @@
                 <td class="table-data" th:text="${teacher.phone}"></td>
                 <td class="table-data" th:text="${teacher.address}"></td>
                 <td class="table-data" th:text="${teacher.specialty}"></td>
-                <td class="table-data"><a class="link" href="#">To Show</a></td>
-                <td class="table-data"><a class="link" href="#">To Show</a></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/people/teachers/students/} + ${teacher.id}">To Show</a></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/people/teachers/subjects/} + ${teacher.id}">To Show</a></td>
               </tr>
             </tbody>
           </table>
