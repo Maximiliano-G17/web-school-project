@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1 class="title">REGISTER STUDENT</h1>
+    <form th:action="@{/personas/postRegistrar}" th:object="${person}"
+		method="post">
+		<input type="hidden" th:field="*{id}"/>
+        <div class="form1">
+            <div class="form-group1">
+                <label class="label" for="name">Name:</label>
+                <input class="input" type="text" th:field="*{name}" id="name" placeholder="Enter name">       
+            </div>
+            <div class="form-group2">
+                <label class="label" for="surname">Surname:</label>
+                <input class="input" type="text" th:field="*{surname}" id="surname" placeholder="Enter surname">
+            </div>
+            <div class="form-group3">
+                <label class="label" for="d.n.i">D.N.I:</label>
+                <input class="input" type="text" th:field="*{d.n.i}" id="d.n.i" placeholder="Enter D.N.I">
+            </div>
+            <div class="form-group4">
+                <label class="label" for="phone">Phone:</label>
+                <input class="input" type="text" th:field="*{phone}" id="phone" placeholder="Enter phone">
+            </div>
+            <div class="form-group5">
+                <label class="label" for="imput">Address:</label>
+                <input class="input" type="text" th:field="*{address}" id="imput" placeholder="Enter address">
+            </div>
+            <div class="form-group6">
+                <label class="label" for="yearStudied">Year:</label>
+                <input class="input" type="text" th:field="*{yearStudied}" id="yearStudied" placeholder="Enter year">
+            </div>
+            <div class="form-group7"> 
+                <label class="label" for="imput">Subjects:</label>
+            </div>
+            <div class="checks">
+                <div class="check1">
+                    <input type="checkbox" id="ingles" name="ingles" value="ingles">
+                    <label for="vehicle1"> INGLES</label>
+                </div>
+                <div class="check1">
+                    <input type="checkbox" id="matematica" name="matematica" value="matematica">
+                    <label for="vehicle1">MATEMATICA</label>
+                </div>
+                <div class="check1">
+                    <input type="checkbox" id="programacion" name="programacion" value="programacion">
+                    <label for="vehicle1">PROGRAMACION</label>
+                </div>
+                <div class="check1">
+                    <input type="checkbox" id="literatura" name="literatura" value="literatura">
+                    <label for="vehicle1">LITERATURA</label>
+                </div>
+                <div class="check1">
+                    <input type="checkbox" id="historia" name="historia" value="historia">
+                    <label for="vehicle1">HISTORIA</label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn">Save</button>
+      </form>
+</body>
+</html>
