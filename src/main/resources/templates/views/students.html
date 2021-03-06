@@ -22,7 +22,10 @@
                 <th class="table-head">Address</th>
                 <th class="table-head">Year Studied</th>
                 <th class="table-head">Teachers</th>
-                <th class="table-head">Subjects</th>
+                <th class="table-head">Subjects</th>             
+                <th class="table-head">Edit</th>
+                <th class="table-head">Delete</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -34,8 +37,11 @@
                 <td class="table-data" th:text="${student.phone}"></td>
                 <td class="table-data" th:text="${student.address}"></td>
                 <td class="table-data" th:text="${student.yearStudied}"></td>
-                <td class="table-data"><a class="link" href="#">To Show</a></td>
-                <td class="table-data"><a class="link" href="#">To Show</a></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{teachers/} + ${student.id}">To Show</a></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{subjects/} + ${student.id}">To Show</a></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{update/} + ${student.id}">Edit</a></td>
+                <td class="table-data"><a class="link" th:href="@{delete/} + ${student.id}"
+					onclick="return confirm('make sure to delete the user')">Delete</a></td>                                
               </tr>
             </tbody>
           </table>
