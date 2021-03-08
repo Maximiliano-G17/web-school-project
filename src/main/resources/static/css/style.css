@@ -67,13 +67,13 @@ a:hover{
 .btn{
     display: block;
     font-size: 120%;
-    margin: 5% 85%;
+    margin: 2% 85%;
     border-radius: 7px;
     width: 8%;  
 }
 .btn:hover{
     font-size: 150%;
-    background-color: rgba(233, 38, 38, 0.966);
+    background-color: greenyellow;
 }
 .form1{
     border: solid 1px whitesmoke;
@@ -88,14 +88,31 @@ a:hover{
     text-align: center;
     color: whitesmoke;
 }
-.checks{
-    color: whitesmoke;   
-    display: inline-flex;
-    justify-content: space-around;  
-    width: 60%;
-    font-size: 120%;
+.checks, .check1{
+    color: whitesmoke;  
+    margin-bottom: 1%;
+    margin-left: 2%;
+    font-size: 160%;
 }
 .check1{
+    margin-right: 0.5%;
+    display: inline-flex;
+    justify-content: space-around; 
     transform: scale(1.2);
-    margin-bottom: 3%;
+}
+.register{
+    width: 5%;    
+    text-decoration: none;
+    color: black;
+    font-size: 130%;
+    margin: 2% 0%;
+    border-radius: 3px;
+    color: rgb(4, 248, 4);
+}
+.links-students{
+    margin-top: 2%;
+    font-size: 20px;
+    display: inline-flex;
+    width:100%;  
+    justify-content: space-around;
 }
