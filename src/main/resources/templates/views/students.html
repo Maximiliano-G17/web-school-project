@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Students</title>
 </head>
 <body>
     <div class="table-container">    
@@ -37,14 +36,20 @@
                 <td class="table-data" th:text="${student.phone}"></td>
                 <td class="table-data" th:text="${student.address}"></td>
                 <td class="table-data" th:text="${student.yearStudied}"></td>
-                <td class="table-data"><a class="link" th:target="_blank" th:href="@{teachers/} + ${student.id}">To Show</a></td>
-                <td class="table-data"><a class="link" th:target="_blank" th:href="@{subjects/} + ${student.id}">To Show</a></td>
-                <td class="table-data"><a class="link" th:target="_blank" th:href="@{update/} + ${student.id}">Edit</a></td>
-                <td class="table-data"><a class="link" th:href="@{delete/} + ${student.id}"
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/people/students/teachers/} + ${student.id}">To Show</a></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/people/students/subjects/} + ${student.id}">To Show</a></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/people/students/update/} + ${student.id}">Edit</a></td>
+                <td class="table-data"><a class="link" th:href="@{/api/people/students/delete/} + ${student.id}"
 					onclick="return confirm('make sure to delete the user')">Delete</a></td>                                
               </tr>
             </tbody>
           </table>
+    </div>
+    <div class="links-students">
+      <div>
+        <a class="register"
+        href="/api/people/students/register">Register</a>
+      </div>
     </div>
 </body>
 </html>

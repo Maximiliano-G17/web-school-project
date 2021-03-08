@@ -13,7 +13,7 @@ public interface StudentService {
 	
 	List<Student> findByAll();
 	
-	Student save(Student student);
+	Student save(Student student,List<String> subjectValues);
 	
 	void delete(Long id);
 	

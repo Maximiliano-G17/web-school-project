@@ -1,5 +1,6 @@
 package com.web.school.project.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,8 @@ import com.web.school.project.domain.Subject;
 import com.web.school.project.domain.Teacher;
 import com.web.school.project.repository.StudentRepository;
 import com.web.school.project.service.StudentService;
+import com.web.school.project.service.SubjectService;
+import com.web.school.project.service.TeacherService;
 
 @Service
 @Transactional
@@ -19,6 +22,12 @@ public class StudentServiceImpl implements StudentService{
 
 	@Autowired
 	private StudentRepository studentRepo;
+	
+	@Autowired
+	private TeacherService teacherService;
+	
+	@Autowired
+	private SubjectService subjectService;
 	
 	@Override
 	public Optional<Student> findById(Long id) {
@@ -51,10 +60,32 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public Student save(Student student) {
+	public Student save(Student student,List<String> subjectValues) {
+		List<Subject> subjectsFound = findTeachersBySubject(subjectValues);
+		List<Teacher> teachersFound = findSubjectsBySubject(subjectValues);
+
+		student.setTeachers(teachersFound);
+		student.setSubjects(subjectsFound);
+		student.setRol("USER");
 		return studentRepo.save(student);
 	}
 	
+	private List<Teacher> findSubjectsBySubject(List<String> subjectValues) {
+		List<Teacher> teachers = new ArrayList<>();
+		for(int i = 0; i < subjectValues.size(); i++) {
+			teachers.addAll(teacherService.findBySpecialty(subjectValues.get(i)));
+		}
+		return teachers;
+	}
+
+	private List<Subject> findTeachersBySubject (List<String> subjectValues) {
+		List<Subject> subjects = new ArrayList<>();
+		for(int i = 0; i < subjectValues.size(); i++) {
+			subjects.add(subjectService.findByName(subjectValues.get(i)).get());
+		}
+		return subjects;
+	}
+
 	@Override
 	public void delete(Long id) {
 		studentRepo.deleteById(id);

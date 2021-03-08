@@ -11,6 +11,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "students")
@@ -18,6 +20,7 @@ import javax.persistence.Table;
 public class Student extends Person{
 	
 	@Column
+	@Pattern(regexp = "[a-zA-Z]{2,20}", message="Error, el nombre solo puede contener letras")
 	private String yearStudied;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -25,7 +28,8 @@ public class Student extends Person{
 	inverseJoinColumns = @JoinColumn(name="teacher_id"))
 	private List<Teacher> teachers = new ArrayList<>();
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@NotEmpty
+	@ManyToMany(fetch = FetchType.LAZY)	
 	@JoinTable(name = "students_subject",joinColumns = @JoinColumn(name="student_id"),
 	inverseJoinColumns = @JoinColumn(name="subject_id"))
 	private List<Subject> subjects = new ArrayList<>();
@@ -54,8 +58,8 @@ public class Student extends Person{
 		this.subjects = subjects;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Student [yearStudied=" + yearStudied + ", teachers=" + teachers + ", subjects=" + subjects + "]";
-//	}
+	@Override
+	public String toString() {
+		return super.toString() + "Student [yearStudied=" + yearStudied + ", teachers=" + teachers + ", subjects=" + subjects + "]";
+	}
 }
