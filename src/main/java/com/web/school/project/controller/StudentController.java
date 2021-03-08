@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,22 +42,19 @@ public class StudentController {
 	@GetMapping("/register")
 	public String preRegister(Model model) {
 		List<Subject> allSubjects = subjectService.findAll();
-		String title = "REGISTER STUDENT";
-		model.addAttribute("title", title);
+		model.addAttribute("title", "REGISTER STUDENT");
 		model.addAttribute("subjects", allSubjects);
 		model.addAttribute("student", new Student());
 		return "views/register";		
 	}
 	
 	@PostMapping("/postRegister")
-	public String postRegister(@Valid @ModelAttribute Student student,BindingResult result,Model model, 
+	public String postRegister(@Valid Student student,BindingResult result,Model model, 
 			@RequestParam List<String> subjectValues) {
 		if (result.hasErrors()) {
 			List<Subject> allSubjects = subjectService.findAll();
-			String title = "REGISTER STUDENT";
-			model.addAttribute("title", title);
+			model.addAttribute("title", "REGISTER STUDENT");
 			model.addAttribute("subjects", allSubjects);
-			model.addAttribute("student", new Student());
 			return "views/register";
 		}
 		studentService.save(student, subjectValues);

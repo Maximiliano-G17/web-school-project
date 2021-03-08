@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "persons")
@@ -18,14 +20,19 @@ public abstract class Person {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
+	@NotEmpty
 	private String dni;
 	@Column
+	@Pattern(regexp = "[a-zA-Z]{2,20}")
 	private String name;
-	@Column
+	@NotEmpty
+	@Column	
 	private String surname;
 	@Column
+	@NotEmpty
 	private String phone;
 	@Column
+	@NotEmpty
 	private String address;
 	@Column
 	private String rol;
