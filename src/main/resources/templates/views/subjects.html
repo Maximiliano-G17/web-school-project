@@ -23,8 +23,8 @@
               <tr class="table-row" th:each="subject:${findAll}">
                 <th class="table-data" scope="row" th:text="${subject.subject_id}"></th>
                 <td class="table-data" th:text="${subject.name}"></td>
-                <td class="table-data"><a class="link" href="#">To Show</a></td>
-                <td class="table-data"><a class="link" href="#">To Show</a></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/people/subjects/teacher/} + ${subject.subject_id}">To Show</a></td>
+                <td class="table-data"><a class="link" th:target="_blank" th:href="@{/api/people/subjects/students/} + ${subject.subject_id}">To Show</a></td>
               </tr>
             </tbody>
           </table>

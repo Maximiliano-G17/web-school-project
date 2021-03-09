@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.web.school.project.domain.Student;
 import com.web.school.project.domain.Subject;
+import com.web.school.project.domain.Teacher;
 import com.web.school.project.repository.SubjectRepository;
 import com.web.school.project.service.SubjectService;
 
@@ -34,13 +36,12 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 
 	@Override
-	public List<Subject> findByTeacherId(Long id) {
-		return subjectRepo.findByTeacherId(id);
+	public Teacher findTeacherBySubjectId(Long id) {
+		return subjectRepo.findById(id).get().getTeacher();
 	}
 
 	@Override
-	public List<Subject> findByStudentsId(Long id) {		
-		return subjectRepo.findByStudentsId(id);
-	}
-	
+	public List<Student> findStudentsBySubjectId(Long id) {
+		return subjectRepo.findById(id).get().getStudents();
+	}	
 }
