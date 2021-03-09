@@ -20,7 +20,7 @@ import javax.validation.constraints.Pattern;
 public class Student extends Person{
 	
 	@Column
-	@Pattern(regexp = "[a-zA-Z]{2,20}", message="Error, el nombre solo puede contener letras")
+	@Pattern(regexp = "[0-9]{4}", message="The year cannot be empty")
 	private String yearStudied;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
