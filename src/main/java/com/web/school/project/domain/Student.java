@@ -11,7 +11,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 @Entity
@@ -27,8 +26,7 @@ public class Student extends Person{
 	@JoinTable(name = "students_teachers",joinColumns = @JoinColumn(name="student_id"),
 	inverseJoinColumns = @JoinColumn(name="teacher_id"))
 	private List<Teacher> teachers = new ArrayList<>();
-	
-	@NotEmpty
+
 	@ManyToMany(fetch = FetchType.LAZY)	
 	@JoinTable(name = "students_subject",joinColumns = @JoinColumn(name="student_id"),
 	inverseJoinColumns = @JoinColumn(name="subject_id"))

@@ -19,19 +19,19 @@ public abstract class Person {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
-	@Pattern(regexp = "[0-9]{7}", message = "The length of the D.N.I can be only 7")
+	@Pattern(regexp = "[0-9]{8}", message = "The length of the D.N.I can be only 7")
 	private String dni;
 	@Column
-	@Pattern(regexp = "[a-zA-Z]{2,20}", message = "The length of the name can be from 2 to 20")
+	@Pattern(regexp = "[a-zA-Z\s]{2,20}", message = "The length of the name can be from 2 to 20")
 	private String name;	
 	@Column	
 	@Pattern(regexp = "[a-zA-Z]{2,20}", message = "The length of the surname can be from 2 to 20")
 	private String surname;
 	@Column
-	@Pattern(regexp = "[a-zA-Z]{8,20}", message = "The phone cannot be empty")
+	@Pattern(regexp = "[0-9]{5,20}", message = "The phone cannot be empty")
 	private String phone;
 	@Column
-	@Pattern(regexp = "[a-zA-Z]{2,50}", message = "The address cannot be empty")
+	@Pattern(regexp = "[A-Za-z0-9\s]{2,50}", message = "The address cannot be empty")
 	private String address;
 	@Column
 	private String rol;

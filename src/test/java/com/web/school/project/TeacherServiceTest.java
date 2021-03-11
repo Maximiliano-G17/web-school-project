@@ -69,7 +69,7 @@ public class TeacherServiceTest {
 		List<Student> studentsFound = teacherService.findStudentsByTeacherId(id);
 		
 		assertThat(studentsFound).isNotEmpty();
-		assertEquals(7,studentsFound.size());
+		assertEquals(9,studentsFound.size());
 	}
 	
 	@Test
