@@ -10,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.web.school.project.domain.Student;
 import com.web.school.project.domain.Subject;
+import com.web.school.project.domain.Teacher;
 import com.web.school.project.service.SubjectService;
 
 @SpringBootTest
@@ -66,41 +68,40 @@ public class SubjectServiceTest {
 	}
 	
 	@Test
-	public void findByTeacherId_withTeacherIdExisting_returnAListSubject() {
-		Long id = 11L;
-		
-		List<Subject> subjectsFound = subjectService.findByTeacherId(id);
-		
-		assertThat(subjectsFound).isNotEmpty();
-		assertEquals(id, subjectsFound.get(0).getTeacher().getId());
-	}
-	
-	@Test
-	public void findByTeacherId_withTeacherIdNonexistent_returnAListSubjectEmpty() {
-		Long id = -99L;
-		
-		List<Subject> subjectsFound = subjectService.findByTeacherId(id);
-		
-		assertThat(subjectsFound).isEmpty();
-	}
-	
-	@Test
-	public void findByStudentsId_withStudentsIdExisting_returnAListSubject() {
+	public void findStudentsBySubjectId_withSubjectIdExisting_returnAListStudents() {
 		Long id = 1L;
 		
-		List<Subject> subjectsFound = subjectService.findByStudentsId(id);
+		List<Student> StudentsFound = subjectService.findStudentsBySubjectId(id);
 		
-		assertThat(subjectsFound).isNotEmpty();
-		assertEquals(3, subjectsFound.size());
+		assertThat(StudentsFound).isNotEmpty();
+		assertEquals(9, StudentsFound.size());
 	}
 	
 	@Test
-	public void findByStudentsId_withStudentsIdNonexistent_returnAListSubject() {
+	public void findStudentsBySubjectId_withSubjectIdNonexistent_returnAListEmpty() {
 		Long id = -99L;
 		
-		List<Subject> subjectsFound = subjectService.findByStudentsId(id);
+		List<Student> StudentsFound = subjectService.findStudentsBySubjectId(id);
 		
-		assertThat(subjectsFound).isEmpty();
+		assertThat(StudentsFound).isEmpty();
 	}
 	
+	@Test
+	public void findteachersBySubjectId_withSubjectIdExisting_returnAListTeacher() {
+		Long id = 1L;
+		
+		List<Teacher> teachersFound = subjectService.findTeacherBySubjectId(id);
+		
+		assertThat(teachersFound).isNotEmpty();
+		assertEquals("Ingles", teachersFound.get(0).getSpecialty());
+	}
+	
+	@Test
+	public void findteachersBySubjectId_withSubjectIdNonexistent_returnAListEmpty() {
+		Long id = -99L;
+		
+		List<Teacher> teachersFound = subjectService.findTeacherBySubjectId(id);
+		
+		assertThat(teachersFound).isEmpty();
+	}
 }

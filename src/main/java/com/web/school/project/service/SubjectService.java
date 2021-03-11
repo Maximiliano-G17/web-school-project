@@ -15,7 +15,7 @@ public interface SubjectService {
 
 	Optional<Subject> findByName(String subject);
 
-	Teacher findTeacherBySubjectId(Long id);
+	List<Teacher> findTeacherBySubjectId(Long id);
 
 	List<Student> findStudentsBySubjectId(Long id);
 	

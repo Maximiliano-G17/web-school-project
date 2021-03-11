@@ -1,6 +1,7 @@
 package com.web.school.project.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ public class SubjectController {
 	
 	@RequestMapping("/teacher/{id}")
 	public String readAllStudentsByTeacherId(@PathVariable Long id, Model model) {
-		Teacher teacherBySubjectId = subjectService.findTeacherBySubjectId(id);
+		List<Teacher> teacherBySubjectId = subjectService.findTeacherBySubjectId(id);
 		
 		model.addAttribute("findAll", teacherBySubjectId);		
 		return "views/teachers";
