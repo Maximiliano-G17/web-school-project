@@ -14,10 +14,10 @@ public interface TeacherRepository extends JpaRepository<Teacher, Long>{
 
 	List<Teacher> findBySpecialty(String specialty);
 
-	@Query(value ="select s from Teacher t join t.students s where t.id = :id")
+	@Query(value ="select t.students from Teacher t where t.id = :id")
 	List<Student> findStudentsByTeacherId(Long id);
 
-	@Query(value ="select s from Teacher t join t.subjects s where t.id = :id")
+	@Query(value ="select t.subjects from Teacher t where t.id = :id")
 	List<Subject> findSubjectsByTeacherId(Long id);
 
 	List<Teacher> findBySurname(String surname);
