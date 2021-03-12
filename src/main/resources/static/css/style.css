@@ -116,3 +116,21 @@ a:hover{
     width:100%;  
     justify-content: space-around;
 }
+.pagination {
+  display: inline-flex;
+  margin-top: 2%;
+}
+
+.pagination a {
+	color: white;
+	float: left;
+	padding: 8px 16px;
+	border: 1px solid #ddd;
+}
+.pagination-ul{
+	list-style:none;
+}
+.pagination a:hover{
+	color: black;
+    background-color: greenyellow;
+}
